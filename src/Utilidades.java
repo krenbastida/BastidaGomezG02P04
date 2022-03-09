@@ -24,4 +24,23 @@ public class Utilidades {
             memoria[i] = "-";
         }
     }
+
+    public static void buscarEspacio(String[] memoria, Proceso proceso){
+        short espacio = (short) (proceso.tam/64);
+        short contador = 0;
+
+        for(int i = 1; i < 33; i++){
+            if(memoria[i].equals("-")){
+                contador++;
+            }else{
+                contador = 0;
+            }
+            if(contador == espacio) {
+                for(int j = i - espacio; j <= i; j++){
+                    memoria[j] = proceso.nombre;
+                }
+                break;
+            }
+        }
+    }
 }
