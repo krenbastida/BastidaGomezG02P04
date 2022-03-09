@@ -32,4 +32,5 @@ public class Proceso {
     public String imprimir(){
         return "Nombre: " + nombre + " | " + " Identificador: " + id + " | " + " Instrucciones: " + instrucciones + " | " + " Tamaño: " + tam + "MB";
     }
+
 }
