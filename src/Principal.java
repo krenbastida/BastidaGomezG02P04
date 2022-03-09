@@ -1,25 +1,39 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Principal {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         short opc = 0;
         int memory = 2048;
+        Queue <Proceso> colaProc = new LinkedList<>();
+        //Map <int, Proceso> mp = new HashMap <int, Proceso>();
+
         do {
-            System.out.println("ADMINISTRADOR DE PROCESOS\nElija una opción: \n1)Crear nuevo Proceso \n2)Ver estado actual del sistema " +
-                    "\n3)Imprimir cola de procesos \n4)Ver proceso actual \n5)Ejecutar proceso actual \n6)Pasar al siguiente proceso" +
-                    "\n7)Matar proceso actual \n8)Salir");
+            System.out.println("""
+                    \s\sADMINISTRADOR DE PROCESOS
+                    Elija una opción:\s
+                    1)Crear nuevo Proceso\s
+                    2)Ver estado actual del sistema\s
+                    3)Imprimir cola de procesos\s
+                    4)Ver proceso actual\s
+                    5)Ejecutar proceso actual\s
+                    6)Pasar al siguiente proceso
+                    7)Matar proceso actual\s
+                    8)Salir""");
             try{
                 opc = sc.nextShort();
                 switch (opc){
                     case 1:
-                        memory = Proceso.crearProceso(memory);
-                    /*case 2:
-                        Proceso.estadoActual();
+                        System.out.println("MEMORIA ACTUALIZADA = " + memory);
+                        memory = Proceso.crearProceso(memory, colaProc);
+                        break;
+                    //case 2:
+                      //  Proceso.estadoActual();
+                        //break;
                     case 3:
-                        Proceso.imprimirCola();
-                    case 4:
+                        Utilidades.imprimirCola(colaProc);
+                        break;
+                    /*case 4:
                         Proceso.verProcesoActual();
                         break;
                     case 5:
@@ -30,8 +44,9 @@ public class Principal {
                         break;
                     case 7:
                         Proceso.matarProceso();
-                    case 8:
                         break;*/
+                    case 8:
+                        break;
                 }
 
             }catch (InputMismatchException exe){
@@ -40,8 +55,4 @@ public class Principal {
             }
         }while (opc != 8);
     }
-
-
-
-
 }
