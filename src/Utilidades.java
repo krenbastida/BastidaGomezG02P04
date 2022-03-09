@@ -7,4 +7,21 @@ public class Utilidades {
             System.out.println(imp.imprimir());
         }
     }
+
+    public static void imprimirLista(List<Proceso> impr){
+        int cont = 1;
+        if(impr.isEmpty()){
+            System.out.println("No hay procesos finalizados o eliminados");
+        }else {
+            for(Proceso imp : impr){
+                System.out.println(cont + ".- " + imp.nombre + "\n");
+            }
+        }
+    }
+
+    public static void llenarArreglo(String[] memoria){
+        for(int i = 1; i < 2049; i++){
+            memoria[i] = "-";
+        }
+    }
 }
