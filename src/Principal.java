@@ -21,10 +21,13 @@ public class Principal {
                         Proceso.imprimirCola();
                     case 4:
                         Proceso.verProcesoActual();
+                        break;
                     case 5:
                         Proceso.ejecutarProcesoActual();
+                        break;
                     case 6:
                         Proceso.siguienteProceso();
+                        break;
                     case 7:
                         Proceso.matarProceso();
                     case 8:

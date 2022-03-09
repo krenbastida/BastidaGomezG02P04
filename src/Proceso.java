@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Proceso {
     String nombre;
-    int id;
+    String id;
     short instrucciones;
     int tam;
 
@@ -23,5 +23,9 @@ public class Proceso {
             proceso.nombre = sc.nextLine();
         }
         return memory;
+    }
+
+    public String imprimir(){
+        return "Nombre: " + nombre + " | " + " Identificador: " + id + " | " + " Instrucciones: " + instrucciones + " | " + " Tamaño: " + tam + "MB";
     }
 }
