@@ -29,6 +29,33 @@ public class Proceso {
         return memory;
     }
 
+    public static void estadoActual(Queue<Proceso> colaProc, List<Proceso> finalizados, List <Proceso> eliminados, String[] memoria) {
+        short cuentaProc = (short)colaProc.size();
+        System.out.println("\nNúmero de procesos en cola: " + cuentaProc);
+        System.out.println("\nProcesos finalizados exitosamente:");
+        Utilidades.imprimirLista(finalizados);
+        System.out.println("\nProcesos eliminados:");
+        Utilidades.imprimirLista(eliminados);
+        System.out.println("\nEstado actual de la memoria:");
+
+        for(int i = 1; i < 2049; i++){
+            System.out.println(i + ".- " + "   " + memoria[i]);
+        }
+    }
+
+    public static void procesoActual(Queue<Proceso> colaProc){
+        Proceso proceso = colaProc.peek();
+        assert proceso != null;
+        System.out.println("Proceso activo: " + proceso.nombre);
+    }
+
+    public static void matarProceso(Queue<Proceso> colaProc, List<Proceso> eliminados){
+        Proceso proceso = colaProc.poll();
+        assert proceso != null;
+        System.out.println("Proceso activo: " + proceso.nombre);
+        eliminados.add(proceso);
+    }
+
     public String imprimir(){
         return "Nombre: " + nombre + " | " + " Identificador: " + id + " | " + " Instrucciones: " + instrucciones + " | " + " Tamaño: " + tam + "MB";
     }

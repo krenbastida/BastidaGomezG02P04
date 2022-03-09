@@ -6,11 +6,17 @@ public class Principal {
         short opc = 0;
         int memory = 2048;
         Queue <Proceso> colaProc = new LinkedList<>();
+        List <Proceso> finalizados = new LinkedList<>();
+        List <Proceso> eliminados = new LinkedList<>();
+        String[] memoria = new String[2049];
+
+        Utilidades.llenarArreglo(memoria);
+
         //Map <int, Proceso> mp = new HashMap <int, Proceso>();
 
         do {
             System.out.println("""
-                    \s\sADMINISTRADOR DE PROCESOS
+                    \n\n\sADMINISTRADOR DE PROCESOS
                     Elija una opción:\s
                     1)Crear nuevo Proceso\s
                     2)Ver estado actual del sistema\s
@@ -27,24 +33,24 @@ public class Principal {
                         System.out.println("MEMORIA ACTUALIZADA = " + memory);
                         memory = Proceso.crearProceso(memory, colaProc);
                         break;
-                    //case 2:
-                      //  Proceso.estadoActual();
-                        //break;
+                    case 2:
+                        Proceso.estadoActual(colaProc, finalizados, eliminados, memoria);
+                        break;
                     case 3:
                         Utilidades.imprimirCola(colaProc);
                         break;
-                    /*case 4:
-                        Proceso.verProcesoActual();
+                    case 4:
+                        Proceso.procesoActual(colaProc);
                         break;
-                    case 5:
+                    /*case 5:
                         Proceso.ejecutarProcesoActual();
                         break;
                     case 6:
                         Proceso.siguienteProceso();
-                        break;
-                    case 7:
-                        Proceso.matarProceso();
                         break;*/
+                    case 7:
+                        Proceso.matarProceso(colaProc, eliminados);
+                        break;
                     case 8:
                         break;
                 }
