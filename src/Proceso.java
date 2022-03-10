@@ -86,6 +86,12 @@ public class Proceso {
         }
     }
 
+    public static void siguienteProceso(Queue<Proceso> colaProc){
+        Proceso proceso = colaProc.poll();
+        System.out.println("Pasando al siguiente proceso sin ejecutar instrucciones...");
+        colaProc.add(proceso);
+    }
+
     public String imprimir(){
         return "Nombre: " + nombre + " | " + " Identificador: " + id + " | " + " Instrucciones: " + instrucciones + " | " + " Tamaño: " + tam + "MB";
     }

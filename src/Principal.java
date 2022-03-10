@@ -43,9 +43,9 @@ public class Principal {
                     case 5:
                         Proceso.ejecutarProceso(colaProc, finalizados, memoria);
                         break;
-                    /*case 6:
-                        Proceso.siguienteProceso();
-                        break;*/
+                    case 6:
+                        Proceso.siguienteProceso(colaProc);
+                        break;
                     case 7:
                         Proceso.matarProceso(colaProc, eliminados);
                         break;
