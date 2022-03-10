@@ -26,31 +26,21 @@ public class Principal {
                     8)Salir""");
             try{
                 opc = sc.nextShort();
-                switch (opc){
-                    case 1:
+                switch (opc) {
+                    case 1 -> {
                         System.out.println("MEMORIA ACTUALIZADA = " + memory);
                         memory = Proceso.crearProceso(memory, colaProc, memoria);
-                        break;
-                    case 2:
-                        Proceso.estadoActual(colaProc, finalizados, eliminados, memoria);
-                        break;
-                    case 3:
+                    }
+                    case 2 -> Proceso.estadoActual(colaProc, finalizados, eliminados, memoria);
+                    case 3 -> Utilidades.imprimirCola(colaProc);
+                    case 4 -> Proceso.procesoActual(colaProc);
+                    case 5 -> Proceso.ejecutarProceso(colaProc, finalizados, memoria);
+                    case 6 -> Proceso.siguienteProceso(colaProc);
+                    case 7 -> Proceso.matarProceso(colaProc, eliminados, memoria);
+                    case 8 -> {
+                        System.out.println("Saliendo...");
                         Utilidades.imprimirCola(colaProc);
-                        break;
-                    case 4:
-                        Proceso.procesoActual(colaProc);
-                        break;
-                    case 5:
-                        Proceso.ejecutarProceso(colaProc, finalizados, memoria);
-                        break;
-                    case 6:
-                        Proceso.siguienteProceso(colaProc);
-                        break;
-                    case 7:
-                        Proceso.matarProceso(colaProc, eliminados);
-                        break;
-                    case 8:
-                        break;
+                    }
                 }
 
             }catch (InputMismatchException exe){
