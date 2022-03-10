@@ -9,7 +9,7 @@ public class Proceso {
 
     static Scanner sc = new Scanner(System.in);
 
-    public static int crearProceso(int memory, Queue<Proceso> colaProc){
+    public static int crearProceso(int memory, Queue<Proceso> colaProc, String[] memoria){
         //Se le pedirá al usuario los datos del nuevo proceso
         int tam = (int)Math.pow(2, (int)(Math.random()*(10-6)+6)); //En este método el min, o número menor es exclusivo
 
@@ -25,6 +25,8 @@ public class Proceso {
             proceso.instrucciones = (short)(Math.random()*(30-10)+10);
             proceso.tam = tam;
             colaProc.add(proceso);
+
+             Utilidades.buscarEspacio(memoria, proceso);
         }
         return memory;
     }
@@ -38,8 +40,8 @@ public class Proceso {
         Utilidades.imprimirLista(eliminados);
         System.out.println("\nEstado actual de la memoria:");
 
-        for(int i = 1; i < 2049; i++){
-            System.out.println(i + ".- " + "   " + memoria[i]);
+        for(int i = 0; i < 32; i++){
+            System.out.println((i + 1) + ".- " + "   " + memoria[i]);
         }
     }
 

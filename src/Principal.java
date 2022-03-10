@@ -8,15 +8,13 @@ public class Principal {
         Queue <Proceso> colaProc = new LinkedList<>();
         List <Proceso> finalizados = new LinkedList<>();
         List <Proceso> eliminados = new LinkedList<>();
-        String[] memoria = new String[2049];
+        String[] memoria = new String[32];
 
         Utilidades.llenarArreglo(memoria);
 
-        //Map <int, Proceso> mp = new HashMap <int, Proceso>();
-
         do {
-            System.out.println("""
-                    \n\n\sADMINISTRADOR DE PROCESOS
+            System.out.println("""                                      
+                    \sADMINISTRADOR DE PROCESOS
                     Elija una opción:\s
                     1)Crear nuevo Proceso\s
                     2)Ver estado actual del sistema\s
@@ -31,7 +29,7 @@ public class Principal {
                 switch (opc){
                     case 1:
                         System.out.println("MEMORIA ACTUALIZADA = " + memory);
-                        memory = Proceso.crearProceso(memory, colaProc);
+                        memory = Proceso.crearProceso(memory, colaProc, memoria);
                         break;
                     case 2:
                         Proceso.estadoActual(colaProc, finalizados, eliminados, memoria);
