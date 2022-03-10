@@ -5,7 +5,9 @@ public class Proceso {
     String nombre;
     String id;
     short instrucciones;
+    short ejecuciones;
     int tam;
+    String direcciones;
 
     static Scanner sc = new Scanner(System.in);
 
@@ -49,6 +51,10 @@ public class Proceso {
         Proceso proceso = colaProc.peek();
         assert proceso != null;
         System.out.println("Proceso activo: " + proceso.nombre);
+        System.out.println("Identificador: " + proceso.id);
+        System.out.println("Instrucciones totales: " + proceso.instrucciones);
+        System.out.println("Instrucciones ejecutadas: " + proceso.ejecuciones);
+        System.out.println("Direcciones de memoria asignadas: " + proceso.direcciones );
     }
 
     public static void matarProceso(Queue<Proceso> colaProc, List<Proceso> eliminados){

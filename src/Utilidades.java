@@ -41,8 +41,12 @@ public class Utilidades {
             if(contador == espacio) {
                 for(int j = (i+1) - espacio; j <= i; j++){
                     memoria[j] = proceso.nombre;
+                    String l = String.valueOf((i+2)-contador);
+                    String h = String.valueOf(i+1);
+                    proceso.direcciones ="Localidad " + l + " a "+ h;
                 }
                 break;
+
             }
         }
     }
