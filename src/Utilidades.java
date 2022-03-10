@@ -23,9 +23,6 @@ public class Utilidades {
         for(int i = 0; i < 32; i++) {
             memoria[i] = "-";
         }
-        /*for(int i = 0; i < 32; i++){
-            System.out.println("Número: " + i + " " + memoria[i]);
-        }*/
     }
 
     public static void buscarEspacio(String[] memoria, Proceso proceso){
@@ -46,7 +43,6 @@ public class Utilidades {
                     proceso.direcciones ="Localidad " + l + " a "+ h;
                 }
                 break;
-
             }
         }
     }

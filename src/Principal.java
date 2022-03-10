@@ -40,10 +40,10 @@ public class Principal {
                     case 4:
                         Proceso.procesoActual(colaProc);
                         break;
-                    /*case 5:
-                        Proceso.ejecutarProcesoActual();
+                    case 5:
+                        Proceso.ejecutarProceso(colaProc, finalizados, memoria);
                         break;
-                    case 6:
+                    /*case 6:
                         Proceso.siguienteProceso();
                         break;*/
                     case 7:
