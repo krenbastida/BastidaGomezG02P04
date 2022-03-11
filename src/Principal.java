@@ -1,17 +1,30 @@
 import java.util.*;
 
+/**
+ * Clase principal, contiene el metodo main que llama a los diferentes metodos para crear, borrar, guardar procesos.
+ * Se declara la memoria, listas, colas, etc.
+ *
+ * @author Karen Mariel Bastida Vargas, Luis Aldo Gomez Bolanios
+ * @version 1.0
+ */
 public class Principal {
     static Scanner sc = new Scanner(System.in);
+
+    /**
+     * Corre el programa principal, contiene un menu para llamar a los demas procesos.
+     * @param args Parametros por default del metodo main
+     */
     public static void main(String[] args) {
         short opc = 0;
-        int memory = 2048;
-        Queue <Proceso> colaProc = new LinkedList<>();
-        List <Proceso> finalizados = new LinkedList<>();
-        List <Proceso> eliminados = new LinkedList<>();
-        String[] memoria = new String[32];
+        int memory = 2048; // Variable que nos ayuda a controlar el tamaño de la memoria.
+        Queue <Proceso> colaProc = new LinkedList<>(); // Contiene los procesos activos y los que están en espera.
+        List <Proceso> finalizados = new LinkedList<>(); // Lista de procesos finalizados.
+        List <Proceso> eliminados = new LinkedList<>(); // Lista de procesos eliminados.
+        String[] memoria = new String[32]; // Arreglo que contiene detallado los espacios de memoria que ocupan los procesos.
 
         Utilidades.llenarArreglo(memoria);
 
+        // MENÚ
         do {
             System.out.println("""                                      
                     \sADMINISTRADOR DE PROCESOS
@@ -42,12 +55,10 @@ public class Principal {
                         Utilidades.imprimirCola(colaProc);
                     }
                 }
-
             }catch (InputMismatchException exe){
-                System.out.println("Digite un número válido, intente de nuevo");
+                System.out.println("Digite un número válido, intente de nuevo.");
                 sc.nextLine();
             }
         }while (opc != 8);
-
     }
 }
